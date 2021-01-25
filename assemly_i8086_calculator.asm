@@ -9,7 +9,7 @@ string_error db 10, 13, "Wrong input", 33, " Try again.", 10, 13, "$"
 string_zero db 10, 13, "b cannot be equal to zero", 32, " Try again.", 10, 13, "$"
 string_key db 10, 13, 10, 13, "Press any key to exit. ", "$"
 remainder_of_division dw ?
-b dw ?
+b dw ?  ; this one is the b variable which we need to save so we can calculate the division remainder
 
 .code
 ; printing out string_a
@@ -60,7 +60,7 @@ input_b:
     xor ah, ah
     add cx, ax
 
-    mov b, cx  ; b is located in cx
+    mov b, cx  ; cx is located in b
 
     jmp operation  ; jumping over error string
 
